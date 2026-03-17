@@ -2,12 +2,15 @@ package com.app.easynotes
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.aero.notesapp.R
 import com.app.easynotes.core.Routes
@@ -19,14 +22,15 @@ fun LandingScreen(navController: NavHostController){
 
     LaunchedEffect(Unit) {
         delay(1500L)
-        navController.navigate(Routes.WalkA){
-            popUpTo<Routes.LandingRoute>(){
-                inclusive=true
-            }
-        }
+//        navController.navigate(Routes.WalkA){
+//            popUpTo<Routes.LandingRoute>(){
+//                inclusive=true
+//            }
+//        }
     }
 
     Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
-        AssetImageView(imagePath = stringResource(R.string.app_icon))
+        AssetImageView(imagePath = stringResource(R.string.app_icon),
+            modifier = Modifier.height(200.dp).width(200.dp))
     }
 }
