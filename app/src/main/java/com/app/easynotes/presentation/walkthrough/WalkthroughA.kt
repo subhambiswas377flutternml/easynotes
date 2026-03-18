@@ -21,12 +21,14 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.aero.notesapp.R
 import com.app.easynotes.core.h
 import com.app.easynotes.core.w
 import com.app.easynotes.presentation.component.AssetSvgView
+import com.app.easynotes.presentation.component.PrimaryButton
 import com.app.easynotes.presentation.component.WalkthroughProgress
 import com.app.easynotes.ui.theme.CustomFontFamily
 
@@ -36,7 +38,7 @@ fun WalkThroughA() {
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding),
             horizontalAlignment = Alignment.CenterHorizontally) {
 
-            Spacer(modifier = Modifier.height(118.h.dp))
+            Spacer(modifier = Modifier.height(110.h.dp))
 
             // Banner image
             AssetSvgView(imageUrl = stringResource(R.string.intro1),
@@ -45,16 +47,29 @@ fun WalkThroughA() {
             Spacer(modifier = Modifier.height(25.84.h.dp))
             WalkthroughProgress(activeIndex = 0)
 
+            Spacer(modifier = Modifier.height(60.h.dp))
             Text(text = stringResource(R.string.walkthrough_title1),
                 style = TextStyle(
                     color = colorResource(R.color.text_bold_black),
                     fontWeight = FontWeight.W700,
+                    textAlign = TextAlign.Center,
                     fontSize = 32.81.sp,
                     fontFamily = CustomFontFamily.nunitoSansFontFamily
                 )
             )
 
+            Spacer(modifier = Modifier.height(6.h.dp))
+            Text(text = stringResource(R.string.walkthrough_subtitle1),
+                style = TextStyle(
+                    color = colorResource(R.color.text_bold_black),
+                    fontWeight = FontWeight.Normal,
+                    textAlign = TextAlign.Center,
+                    fontSize = 14.96.sp,
+                    fontFamily = CustomFontFamily.nunitoSansFontFamily
+                )
+            )
 
+            PrimaryButton()
         }
     }
 }
