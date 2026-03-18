@@ -21,3 +21,13 @@ val Int.w: Int
     get(){
         return DimensConfiguration.scaleWidth * this
     }
+
+val Double.h: Double
+    get(){
+        return DimensConfiguration.scaleHeight * this
+    }
+
+val Double.w: Double
+    get(){
+        return DimensConfiguration.scaleWidth * this
+    }
