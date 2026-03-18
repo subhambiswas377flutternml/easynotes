@@ -8,8 +8,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.app.easynotes.LandingScreen
+import com.app.easynotes.presentation.auth.AuthScreen
 import com.app.easynotes.presentation.walkthrough.WalkThroughA
+import com.app.easynotes.presentation.walkthrough.WalkThroughB
+import com.app.easynotes.presentation.walkthrough.WalkThroughC
 import kotlinx.serialization.Serializable
+import okhttp3.Route
 
 object Routes {
     @Serializable
@@ -17,6 +21,15 @@ object Routes {
 
     @Serializable
     data object WalkA
+
+    @Serializable
+    data object WalkB
+
+    @Serializable
+    data object  WalkC
+
+    @Serializable
+    data object Auth
 }
 
 @Composable
@@ -36,7 +49,19 @@ fun App(){
         }
 
         composable<Routes.WalkA> {
-            WalkThroughA()
+            WalkThroughA(navController)
+        }
+
+        composable<Routes.WalkB> {
+            WalkThroughB(navController)
+        }
+
+        composable<Routes.WalkC> {
+            WalkThroughC(navController)
+        }
+
+        composable<Routes.Auth> {
+            AuthScreen(navController=navController)
         }
     }
 }

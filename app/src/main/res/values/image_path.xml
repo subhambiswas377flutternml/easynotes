@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_icon">icons/app_icon.png</string>
+
     <string name="intro1">images/intro_banner1.svg</string>
     <string name="rec_blue">images/rec_blue.svg</string>
     <string name="rec_grey">images/rec_grey.svg</string>
+    <string name="intro2">images/intro_banner2.svg</string>
+    <string name="intro3">images/intro_banner3.svg</string>
+
+    <string name="auth_banner">images/auth_banner.png</string>
 </resources>

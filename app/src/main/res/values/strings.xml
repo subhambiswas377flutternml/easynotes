@@ -3,4 +3,11 @@
 
     <string name="walkthrough_title1">Manage your\nnotes easily</string>
     <string name="walkthrough_subtitle1">A completely easy way to manage and customize\nyour notes.</string>
+
+    <string name="walkthrough_title2">Organize your\nthougts</string>
+    <string name="walkthrough_subtitle2">Most beautiful note taking application.</string>
+
+    <string name="walkthrough_title3">Create cards and\neasy styling</string>
+    <string name="walkthrough_subtitle3">Making your content legible has never been\neasier.</string>
+
 </resources>

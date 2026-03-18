@@ -29,7 +29,7 @@ import com.app.easynotes.presentation.component.WalkthroughProgress
 import com.app.easynotes.ui.theme.CustomFontFamily
 
 @Composable
-fun WalkThroughA(navController: NavHostController) {
+fun WalkThroughC(navController: NavHostController) {
     Scaffold(modifier = Modifier.padding(horizontal = 24.w.dp)) {innerPadding->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding),
             horizontalAlignment = Alignment.CenterHorizontally) {
@@ -37,14 +37,14 @@ fun WalkThroughA(navController: NavHostController) {
             Spacer(modifier = Modifier.height(110.h.dp))
 
             // Banner image
-            AssetSvgView(imageUrl = stringResource(R.string.intro1),
+            AssetSvgView(imageUrl = stringResource(R.string.intro3),
                 modifier = Modifier.height(342.h.dp).width(342.w.dp)
             )
             Spacer(modifier = Modifier.height(25.84.h.dp))
-            WalkthroughProgress(activeIndex = 0)
+            WalkthroughProgress(activeIndex = 2)
 
             Spacer(modifier = Modifier.height(60.h.dp))
-            Text(text = stringResource(R.string.walkthrough_title1),
+            Text(text = stringResource(R.string.walkthrough_title3),
                 style = TextStyle(
                     color = colorResource(R.color.text_bold_black),
                     fontWeight = FontWeight.W700,
@@ -55,7 +55,7 @@ fun WalkThroughA(navController: NavHostController) {
             )
 
             Spacer(modifier = Modifier.height(6.h.dp))
-            Text(text = stringResource(R.string.walkthrough_subtitle1),
+            Text(text = stringResource(R.string.walkthrough_subtitle3),
                 style = TextStyle(
                     color = colorResource(R.color.text_bold_black),
                     fontWeight = FontWeight.Normal,
@@ -66,7 +66,9 @@ fun WalkThroughA(navController: NavHostController) {
             )
 
             Spacer(modifier = Modifier.weight(1f))
-            PrimaryButton(buttonText = "Next", onClick = {navController.navigate(Routes.WalkB)})
+            PrimaryButton(buttonText = "Get Started", onClick = {
+                navController.navigate(Routes.Auth)
+            })
             Spacer(modifier = Modifier.height(56.h.dp))
         }
     }
