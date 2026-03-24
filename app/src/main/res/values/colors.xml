@@ -12,4 +12,5 @@
     <color name="progress_grey">#CECBD3</color>
     <color name="text_bold_black">#1C2121</color>
     <color name="primary_color">#007AFF</color>
+    <color name="primary_bg_color">#F2F2F6</color>
 </resources>

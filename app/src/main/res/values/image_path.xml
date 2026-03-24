@@ -10,5 +10,11 @@
     <string name="intro2">images/intro_banner2.svg</string>
     <string name="intro3">images/intro_banner3.svg</string>
 
+    <string name="all_notes">icons/all_notes_circle.svg</string>
+    <string name="fav">icons/fav_circle.svg</string>
+    <string name="hidden">icons/hidden_circle.svg</string>
+    <string name="trash">icons/trash_circle.svg</string>
+    <string name="more_horiz">icons/more_horiz.svg</string>
+
     <string name="auth_banner">images/auth_banner.png</string>
 </resources>

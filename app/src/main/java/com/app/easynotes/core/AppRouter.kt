@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.app.easynotes.LandingScreen
 import com.app.easynotes.presentation.auth.AuthScreen
+import com.app.easynotes.presentation.home.HomeScreen
 import com.app.easynotes.presentation.walkthrough.WalkThroughA
 import com.app.easynotes.presentation.walkthrough.WalkThroughB
 import com.app.easynotes.presentation.walkthrough.WalkThroughC
@@ -30,6 +31,9 @@ object Routes {
 
     @Serializable
     data object Auth
+
+    @Serializable
+    data object Home
 }
 
 @Composable
@@ -62,6 +66,10 @@ fun App(){
 
         composable<Routes.Auth> {
             AuthScreen(navController=navController)
+        }
+
+        composable<Routes.Home> {
+            HomeScreen(navController=navController)
         }
     }
 }

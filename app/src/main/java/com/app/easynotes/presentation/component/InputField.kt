@@ -42,11 +42,13 @@ import com.app.easynotes.ui.theme.CustomFontFamily
 
 @Composable
 fun InputField(outerPadding: PaddingValues = PaddingValues(0.dp),
-               labelText: String,
+               labelText: String? = null,
                textController: MutableState<String>,
-               iconPath: String,
+               iconPath: String? = null,
                hintText: String,
-               isPassword: Boolean = false){
+               isPassword: Boolean = false,
+               unfocusColor: Color = Color.Black,
+               hintFontSize: Int=14){
 
     val visibilityController = remember { mutableStateOf<Boolean>(value = !isPassword) }
 
@@ -56,8 +58,9 @@ fun InputField(outerPadding: PaddingValues = PaddingValues(0.dp),
         .padding(outerPadding),
         horizontalAlignment = Alignment.Start) {
 
+        if(labelText!=null)
         Row(verticalAlignment = Alignment.CenterVertically) {
-            AssetImageView(imagePath = iconPath,
+            AssetImageView(imagePath = iconPath!!,
                 modifier = Modifier.height(20.h.dp).width(30.w.dp))
             Spacer(modifier = Modifier.width(8.w.dp))
             Text(
@@ -69,6 +72,7 @@ fun InputField(outerPadding: PaddingValues = PaddingValues(0.dp),
                 )
             )
         }
+        if(labelText!=null)
         Spacer(modifier = Modifier.height(12.h.dp))
 
         OutlinedTextField(value = textController.value,
@@ -80,11 +84,14 @@ fun InputField(outerPadding: PaddingValues = PaddingValues(0.dp),
             visualTransformation = if(visibilityController.value) VisualTransformation.None else PasswordVisualTransformation(),
             placeholder = { Text(text = hintText, style = TextStyle(fontFamily = CustomFontFamily.nunitoSansFontFamily,
                 color = Color.Gray,
-                fontSize = 14.sp,
+                fontSize = hintFontSize.sp,
                 fontWeight = FontWeight.Bold,
             )) },
             colors = TextFieldDefaults.colors().copy(
-                focusedIndicatorColor = colorResource(R.color.primary_color)
+                focusedIndicatorColor = colorResource(R.color.primary_color),
+                unfocusedIndicatorColor = unfocusColor,
+                unfocusedContainerColor = Color.White,
+                focusedContainerColor = Color.White,
             ),
             onValueChange = {v-> textController.value = v})
     }

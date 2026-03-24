@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.aero.notesapp.R
 import com.app.easynotes.core.AppConstants
+import com.app.easynotes.core.Routes
 import com.app.easynotes.core.h
 import com.app.easynotes.core.w
 import com.app.easynotes.presentation.component.AssetImageView
@@ -98,7 +99,9 @@ fun AuthScreen(navController: NavHostController){
 
             Spacer(modifier = Modifier.weight(1f))
             Box(modifier = Modifier.padding(horizontal = AppConstants.horizontalPaddingValue.w.dp)) {
-                PrimaryButton(buttonText = "Login", onClick = { })
+                PrimaryButton(buttonText = if(currentAuthType.value==AuthType.LOGIN) "Login" else "Sign Up", onClick = {
+                    navController.navigate(Routes.Home)
+                })
             }
             Spacer(modifier = Modifier.height(10.h.dp))
             Row {
