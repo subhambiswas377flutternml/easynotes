@@ -10,6 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
@@ -37,6 +40,7 @@ import com.app.easynotes.core.w
 import com.app.easynotes.presentation.component.AssetSvgView
 import com.app.easynotes.presentation.component.CategoryCard
 import com.app.easynotes.presentation.component.InputField
+import com.app.easynotes.presentation.home.component.RecentNotes
 
 @Composable
 fun HomeScreen(navController: NavHostController){
@@ -94,6 +98,11 @@ fun HomeScreen(navController: NavHostController){
                 CategoryCard(modifier = Modifier.weight(1f), title="Trash", imageUrl = stringResource(R.string.trash))
 
             }
+
+            Spacer(modifier = Modifier.height(20.h.dp))
+
+            // Recent Notes
+            RecentNotes()
         }
     }
 }

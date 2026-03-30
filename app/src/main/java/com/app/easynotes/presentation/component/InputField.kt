@@ -58,19 +58,20 @@ fun InputField(outerPadding: PaddingValues = PaddingValues(0.dp),
         .padding(outerPadding),
         horizontalAlignment = Alignment.Start) {
 
-        if(labelText!=null)
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            AssetImageView(imagePath = iconPath!!,
-                modifier = Modifier.height(20.h.dp).width(30.w.dp))
-            Spacer(modifier = Modifier.width(8.w.dp))
-            Text(
-                text = labelText,
-                style = TextStyle(
-                    fontSize = 18.sp,
-                    fontFamily = CustomFontFamily.nunitoSansFontFamily,
-                    fontWeight = FontWeight.Bold
+        if(labelText!=null) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                AssetImageView(imagePath = iconPath!!,
+                    modifier = Modifier.height(20.h.dp).width(30.w.dp))
+                Spacer(modifier = Modifier.width(8.w.dp))
+                Text(
+                    text = labelText,
+                    style = TextStyle(
+                        fontSize = 18.sp,
+                        fontFamily = CustomFontFamily.nunitoSansFontFamily,
+                        fontWeight = FontWeight.Bold
+                    )
                 )
-            )
+            }
         }
         if(labelText!=null)
         Spacer(modifier = Modifier.height(12.h.dp))

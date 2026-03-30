@@ -28,8 +28,9 @@ fun CategoryCard(modifier: Modifier,
                  title: String,
                  onSelected:()->Unit = {}){
     Card(modifier = modifier,
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
         colors = CardDefaults.cardColors().copy(
-            containerColor = Color.White
+            containerColor = Color.White,
         )) {
         Row(verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 15.w.dp, vertical = 9.h.dp)) {
