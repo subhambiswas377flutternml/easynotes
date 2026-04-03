@@ -1,6 +1,5 @@
 package com.app.easynotes.presentation.home
 
-import android.widget.Space
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,12 +10,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,6 +39,7 @@ import com.app.easynotes.core.w
 import com.app.easynotes.presentation.component.AssetSvgView
 import com.app.easynotes.presentation.component.CategoryCard
 import com.app.easynotes.presentation.component.InputField
+import com.app.easynotes.presentation.home.component.Notescard
 import com.app.easynotes.presentation.home.component.RecentNotes
 
 @Composable
@@ -67,6 +67,9 @@ fun HomeScreen(navController: NavHostController){
 
                 AssetSvgView(imageUrl = stringResource(R.string.more_horiz), modifier = Modifier.height(22.h.dp).width(22.w.dp))
             }},
+        floatingActionButton = { FloatingActionButton(onClick = {}){
+            Icon(Icons.Default.Add, contentDescription = "")
+        } }
     ) { innerPadding->
         Column(modifier = Modifier
             .fillMaxSize()
@@ -102,6 +105,32 @@ fun HomeScreen(navController: NavHostController){
 
             // Recent Notes
             RecentNotes()
+
+            Spacer(modifier = Modifier.height(15.h.dp))
+
+            Text(text = "Notes",
+                modifier = Modifier.padding(horizontal = AppConstants.horizontalPaddingValue.w.dp),
+                style = TextStyle(
+                    color = colorResource(R.color.text_bold_black),
+                    fontWeight = FontWeight.W700,
+                    fontSize = 15.63.sp,
+                )
+            )
+
+            Spacer(modifier = Modifier.height(15.h.dp))
+
+            // Notes
+            Column(
+                modifier = Modifier.fillMaxWidth().wrapContentHeight().padding(horizontal = AppConstants.horizontalPaddingValue.w.dp),
+                verticalArrangement = Arrangement.spacedBy(8.h.dp)
+            ) {
+                repeat(3){
+                    Notescard()
+                }
+            }
+
+
+            Spacer(modifier = Modifier.height(20.h.dp))
         }
     }
 }

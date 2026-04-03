@@ -25,7 +25,7 @@ import com.app.easynotes.core.w
 @Composable
 fun RecentNotes(){
     Column(modifier = Modifier.fillMaxWidth().wrapContentHeight()) {
-        Text(text = "Recent Notes",
+        Text(text = "Recent",
             modifier = Modifier.padding(horizontal = AppConstants.horizontalPaddingValue.w.dp),
             style = TextStyle(
                 color = colorResource(R.color.text_bold_black),
