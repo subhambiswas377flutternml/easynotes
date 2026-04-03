@@ -3,21 +3,21 @@ package com.app.easynotes.core
 object DimensConfiguration {
 
 
-    var scaleHeight: Int = 0
-    var scaleWidth: Int = 0
+    var scaleHeight: Float = 1f
+    var scaleWidth: Float = 1f
 
     fun initConfiguration(deviceHeight: Int, deviceWidth: Int){
-        scaleHeight = deviceHeight / AppConstants.designHeight
-        scaleWidth = deviceWidth / AppConstants.designWidth
+        scaleHeight = deviceHeight.toFloat() / AppConstants.designHeight
+        scaleWidth = deviceWidth.toFloat() / AppConstants.designWidth
     }
 }
 
-val Int.h: Int
+val Int.h: Float
     get(){
         return DimensConfiguration.scaleHeight * this
     }
 
-val Int.w: Int
+val Int.w: Float
     get(){
         return DimensConfiguration.scaleWidth * this
     }

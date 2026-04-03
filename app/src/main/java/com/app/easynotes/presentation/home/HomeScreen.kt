@@ -49,16 +49,11 @@ fun HomeScreen(navController: NavHostController){
     val searchController: MutableState<String> = remember { mutableStateOf<String>("") }
 
     Scaffold(modifier = Modifier.padding(all = 0.dp),
-        containerColor = colorResource(R.color.primary_bg_color)
-    ) { innerPadding->
-        Column(modifier = Modifier
-            .fillMaxSize()
-            .padding(innerPadding)
-            .padding(horizontal = AppConstants.horizontalPaddingValue.w.dp)
-            .verticalScroll(verticalScrollController)) {
-
+        containerColor = colorResource(R.color.primary_bg_color),
+        topBar = {
             // heading and more
-            Row(modifier = Modifier.fillMaxWidth(),
+            Row(modifier = Modifier.fillMaxWidth().wrapContentHeight().
+            padding(start = AppConstants.horizontalPaddingValue.w.dp, end = AppConstants.horizontalPaddingValue.w.dp, top = 45.h.dp, bottom = 20.h.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Text(
@@ -71,19 +66,23 @@ fun HomeScreen(navController: NavHostController){
                 )
 
                 AssetSvgView(imageUrl = stringResource(R.string.more_horiz), modifier = Modifier.height(22.h.dp).width(22.w.dp))
-            }
-
-            Spacer(modifier = Modifier.height(20.h.dp))
+            }},
+    ) { innerPadding->
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .padding(innerPadding)
+            .verticalScroll(verticalScrollController)) {
 
             InputField(textController = searchController,
                 hintText = "Search",
                 unfocusColor = Color.Transparent,
-                hintFontSize = 18
+                hintFontSize = 18,
+                modifier = Modifier.padding(horizontal = AppConstants.horizontalPaddingValue.w.dp)
             )
 
             Spacer(modifier = Modifier.height(20.5.h.dp))
 
-            Row(modifier = Modifier.fillMaxWidth()){
+            Row(modifier = Modifier.fillMaxWidth().padding(horizontal = AppConstants.horizontalPaddingValue.w.dp)){
                 CategoryCard(modifier = Modifier.weight(1f), title="All Notes" ,imageUrl = stringResource(R.string.all_notes))
                 Spacer(modifier = Modifier.width(10.w.dp))
                 CategoryCard(modifier = Modifier.weight(1f), title="Favourites", imageUrl = stringResource(R.string.fav))
@@ -92,7 +91,7 @@ fun HomeScreen(navController: NavHostController){
 
             Spacer(modifier = Modifier.height(10.h.dp))
 
-            Row(modifier = Modifier.fillMaxWidth()){
+            Row(modifier = Modifier.fillMaxWidth().padding(horizontal = AppConstants.horizontalPaddingValue.w.dp)){
                 CategoryCard(modifier = Modifier.weight(1f), title="Hidden", imageUrl = stringResource(R.string.hidden))
                 Spacer(modifier = Modifier.width(10.w.dp))
                 CategoryCard(modifier = Modifier.weight(1f), title="Trash", imageUrl = stringResource(R.string.trash))

@@ -48,11 +48,12 @@ fun InputField(outerPadding: PaddingValues = PaddingValues(0.dp),
                hintText: String,
                isPassword: Boolean = false,
                unfocusColor: Color = Color.Black,
-               hintFontSize: Int=14){
+               hintFontSize: Int=14,
+               modifier: Modifier = Modifier){
 
     val visibilityController = remember { mutableStateOf<Boolean>(value = !isPassword) }
 
-    Column(modifier = Modifier
+    Column(modifier = modifier
         .wrapContentHeight()
         .fillMaxWidth()
         .padding(outerPadding),

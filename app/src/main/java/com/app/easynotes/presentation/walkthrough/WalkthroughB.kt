@@ -43,7 +43,7 @@ fun WalkThroughB(navController: NavHostController) {
             Spacer(modifier = Modifier.height(24.8.h.dp))
             WalkthroughProgress(activeIndex = 1)
 
-            Spacer(modifier = Modifier.height(60.h.dp))
+            Spacer(modifier = Modifier.height(30.h.dp))
             Text(text = stringResource(R.string.walkthrough_title2),
                 style = TextStyle(
                     color = colorResource(R.color.text_bold_black),
