@@ -3,6 +3,7 @@
     <string name="app_icon">icons/app_icon.png</string>
     <string name="mail_icon">icons/mail_icon.png</string>
     <string name="password_icon">icons/password_icon.png</string>
+    <string name="name_icon">icons/name_icon.png</string>
 
     <string name="intro1">images/intro_banner1.svg</string>
     <string name="rec_blue">images/rec_blue.svg</string>

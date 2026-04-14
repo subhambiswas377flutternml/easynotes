@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,8 +32,9 @@ import com.app.easynotes.ui.theme.CustomFontFamily
 
 @Composable
 fun WalkThroughA(navController: NavHostController) {
+    val scrollState = rememberScrollState()
     Scaffold(modifier = Modifier.padding(horizontal = 24.w.dp)) {innerPadding->
-        Column(modifier = Modifier.fillMaxSize().padding(innerPadding),
+        Column(modifier = Modifier.fillMaxSize().padding(innerPadding).verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally) {
 
             Spacer(modifier = Modifier.height(110.h.dp))
@@ -65,9 +68,9 @@ fun WalkThroughA(navController: NavHostController) {
                 )
             )
 
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.height(15.h.dp))
             PrimaryButton(buttonText = "Next", onClick = {navController.navigate(Routes.WalkB)})
-            Spacer(modifier = Modifier.height(56.h.dp))
+            Spacer(modifier = Modifier.height(20.h.dp))
         }
     }
 }

@@ -4,17 +4,18 @@ import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.app.easynotes.LandingScreen
-import com.app.easynotes.presentation.auth.AuthScreen
+import com.app.easynotes.presentation.auth.provider.AuthViewModel
+import com.app.easynotes.presentation.auth.ui.AuthScreen
 import com.app.easynotes.presentation.home.HomeScreen
 import com.app.easynotes.presentation.walkthrough.WalkThroughA
 import com.app.easynotes.presentation.walkthrough.WalkThroughB
 import com.app.easynotes.presentation.walkthrough.WalkThroughC
 import kotlinx.serialization.Serializable
-import okhttp3.Route
 
 object Routes {
     @Serializable
@@ -46,6 +47,9 @@ fun App(){
     DimensConfiguration.initConfiguration(deviceHeight, deviceWidth)
     SvgLoader.setContext(context)
 
+    // ViewModel
+    val authViewModel: AuthViewModel = hiltViewModel<AuthViewModel>()
+
     NavHost(navController = navController, startDestination = Routes.LandingRoute) {
 
         composable<Routes.LandingRoute> {
@@ -65,7 +69,7 @@ fun App(){
         }
 
         composable<Routes.Auth> {
-            AuthScreen(navController=navController)
+            AuthScreen(navController=navController, authViewModel=authViewModel)
         }
 
         composable<Routes.Home> {

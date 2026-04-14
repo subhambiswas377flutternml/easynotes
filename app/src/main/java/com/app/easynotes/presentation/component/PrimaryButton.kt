@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,9 +21,13 @@ import com.aero.notesapp.R
 import com.app.easynotes.core.h
 
 @Composable
-fun PrimaryButton(buttonText: String, onClick:()-> Unit= {}){
+fun PrimaryButton(buttonText: String, onClick:()-> Unit= {}, isLoading: Boolean=false){
         Button(
-            onClick = onClick,
+            onClick = {
+                if(!isLoading){
+                    onClick()
+                }
+            },
             modifier = Modifier.fillMaxWidth().height(56.h.dp),
             shape = RoundedCornerShape(14.dp),
             contentPadding = PaddingValues(vertical = 10.h.dp),
@@ -31,12 +36,17 @@ fun PrimaryButton(buttonText: String, onClick:()-> Unit= {}){
                 contentColor = Color.White
             )
         ) {
-            Text(
-                text = buttonText,
-                style = TextStyle(
-                    fontWeight = FontWeight.W700,
-                    fontSize = 17.sp,
-                )
-            )
+            if(isLoading){
+                CircularProgressIndicator(color = Color.White)
+            }
+            else{
+                    Text(
+                        text = buttonText,
+                        style = TextStyle(
+                            fontWeight = FontWeight.W700,
+                            fontSize = 17.sp,
+                        )
+                    )
+                }
         }
 }

@@ -74,8 +74,9 @@ fun InputField(outerPadding: PaddingValues = PaddingValues(0.dp),
                 )
             }
         }
-        if(labelText!=null)
-        Spacer(modifier = Modifier.height(12.h.dp))
+        if(labelText!=null) {
+            Spacer(modifier = Modifier.height(12.h.dp))
+        }
 
         OutlinedTextField(value = textController.value,
             modifier = Modifier.fillMaxWidth(),
