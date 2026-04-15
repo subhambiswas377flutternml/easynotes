@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.aero.notesapp.R
 import com.app.easynotes.core.AppConstants
+import com.app.easynotes.core.Routes
 import com.app.easynotes.core.h
 import com.app.easynotes.core.w
 import com.app.easynotes.presentation.component.AssetSvgView
@@ -67,7 +68,9 @@ fun HomeScreen(navController: NavHostController){
 
                 AssetSvgView(imageUrl = stringResource(R.string.more_horiz), modifier = Modifier.height(22.h.dp).width(22.w.dp))
             }},
-        floatingActionButton = { FloatingActionButton(onClick = {}){
+        floatingActionButton = { FloatingActionButton(onClick = {
+            navController.navigate(Routes.Edit)
+        }){
             Icon(Icons.Default.Add, contentDescription = "")
         } }
     ) { innerPadding->

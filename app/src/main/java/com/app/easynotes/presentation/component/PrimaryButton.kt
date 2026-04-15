@@ -21,18 +21,25 @@ import com.aero.notesapp.R
 import com.app.easynotes.core.h
 
 @Composable
-fun PrimaryButton(buttonText: String, onClick:()-> Unit= {}, isLoading: Boolean=false){
+fun PrimaryButton(buttonText: String,
+                  modifier: Modifier?=null,
+                  fontSize: Int? = null,
+                  fontWeight: FontWeight?=null,
+                  bgColor: Color? = null,
+                  cornerRadius: Int?=null,
+                  onClick:()-> Unit= {},
+                  isLoading: Boolean=false){
         Button(
             onClick = {
                 if(!isLoading){
                     onClick()
                 }
             },
-            modifier = Modifier.fillMaxWidth().height(56.h.dp),
-            shape = RoundedCornerShape(14.dp),
+            modifier = modifier ?: Modifier.fillMaxWidth().height(56.h.dp),
+            shape = RoundedCornerShape((cornerRadius?: 14).dp),
             contentPadding = PaddingValues(vertical = 10.h.dp),
             colors = ButtonDefaults.buttonColors().copy(
-                containerColor = colorResource(R.color.primary_color),
+                containerColor = bgColor?: colorResource(R.color.primary_color),
                 contentColor = Color.White
             )
         ) {
@@ -43,8 +50,8 @@ fun PrimaryButton(buttonText: String, onClick:()-> Unit= {}, isLoading: Boolean=
                     Text(
                         text = buttonText,
                         style = TextStyle(
-                            fontWeight = FontWeight.W700,
-                            fontSize = 17.sp,
+                            fontWeight = fontWeight?: FontWeight.W700,
+                            fontSize = (fontSize?: 17).sp,
                         )
                     )
                 }
