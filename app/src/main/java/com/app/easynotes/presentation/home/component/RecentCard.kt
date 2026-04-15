@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.aero.notesapp.R
@@ -31,6 +32,8 @@ fun RecentCard(){
     background(color = Color.White).padding(horizontal = 15.w.dp, vertical = 15.h.dp)){
         Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.Start) {
             Text("Getting Started",
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
                 style = TextStyle(fontSize = 15.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = colorResource(R.color.text_bold_black),

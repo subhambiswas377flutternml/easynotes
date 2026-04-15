@@ -11,6 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import com.app.easynotes.LandingScreen
 import com.app.easynotes.presentation.auth.provider.AuthViewModel
 import com.app.easynotes.presentation.auth.ui.AuthScreen
+import com.app.easynotes.presentation.edit.EditScreen
 import com.app.easynotes.presentation.home.HomeScreen
 import com.app.easynotes.presentation.walkthrough.WalkThroughA
 import com.app.easynotes.presentation.walkthrough.WalkThroughB
@@ -35,6 +36,9 @@ object Routes {
 
     @Serializable
     data object Home
+
+    @Serializable
+    data object Edit
 }
 
 @Composable
@@ -74,6 +78,10 @@ fun App(){
 
         composable<Routes.Home> {
             HomeScreen(navController=navController)
+        }
+
+        composable<Routes.Edit> {
+            EditScreen(navController = navController)
         }
     }
 }

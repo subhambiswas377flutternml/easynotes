@@ -136,6 +136,10 @@ fun AuthScreen(navController: NavHostController, authViewModel: AuthViewModel){
                 PrimaryButton(buttonText = if(currentAuthType.value== AuthType.LOGIN) "Login" else "Sign Up",
                     isLoading = authViewModel.authState.value.isLoading(),
                     onClick = {
+
+                        navController.navigate(Routes.Home)
+                        return@PrimaryButton
+
                     if(currentAuthType.value==AuthType.SIGNUP){
                         if(nameController.value.trim().isEmpty()||
                             emailController.value.trim().isEmpty()||

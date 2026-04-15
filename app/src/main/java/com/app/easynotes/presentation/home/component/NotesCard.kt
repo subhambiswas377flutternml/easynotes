@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.aero.notesapp.R
@@ -27,10 +28,12 @@ import com.app.easynotes.core.w
 
 @Composable
 fun Notescard(){
-    Box(modifier = Modifier.fillMaxWidth().height(96.h.dp).clip(shape = RoundedCornerShape(10.dp)).background(color = Color.White)
+    Box(modifier = Modifier.fillMaxWidth().height(100.h.dp).clip(shape = RoundedCornerShape(10.dp)).background(color = Color.White)
         .padding(horizontal = 15.w.dp, vertical = 15.h.dp)) {
         Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.Start) {
             Text("Important",
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
                 style = TextStyle(fontSize = 15.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = colorResource(R.color.text_bold_black),
@@ -44,6 +47,8 @@ fun Notescard(){
             Spacer(modifier = Modifier.height(10.h.dp))
 
             Text(text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam cum ligula justo.",
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
                 style = TextStyle(fontSize = 14.sp,
                     fontWeight = FontWeight.Normal,
                     color = colorResource(R.color.text_bold_black),

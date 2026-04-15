@@ -16,6 +16,7 @@
     <string name="hidden">icons/hidden_circle.svg</string>
     <string name="trash">icons/trash_circle.svg</string>
     <string name="more_horiz">icons/more_horiz.svg</string>
+    <string name="arrow_back">icons/arrow_back.svg</string>
 
     <string name="auth_banner">images/auth_banner.png</string>
 </resources>
