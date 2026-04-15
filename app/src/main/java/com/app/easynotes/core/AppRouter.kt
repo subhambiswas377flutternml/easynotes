@@ -53,7 +53,7 @@ fun App(){
     NavHost(navController = navController, startDestination = Routes.LandingRoute) {
 
         composable<Routes.LandingRoute> {
-            LandingScreen(navController=navController)
+            LandingScreen(navController=navController, authViewModel)
         }
 
         composable<Routes.WalkA> {

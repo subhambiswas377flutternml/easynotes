@@ -6,5 +6,10 @@ class AppConstants {
         const val designWidth: Int = 390
 
         const val horizontalPaddingValue = 22
+
+        const val dataStoreKey: String = "appPref"
+
+        // Preferences Keys
+        const val accessTokenKey: String = "accessToken"
     }
 }

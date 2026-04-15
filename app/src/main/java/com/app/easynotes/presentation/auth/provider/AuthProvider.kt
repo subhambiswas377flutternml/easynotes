@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.easynotes.domain.auth.model.AuthModel
+import com.app.easynotes.domain.auth.usecase.FetchAuth
 import com.app.easynotes.domain.auth.usecase.Login
 import com.app.easynotes.domain.auth.usecase.Signup
 import com.app.easynotes.presentation.auth.ui.AuthType
@@ -26,6 +27,7 @@ sealed class AuthState{
 
 sealed class UIEvents{
     data object SuccessAndNavigate: UIEvents()
+    data object FailureAndStay: UIEvents()
 }
 
 fun AuthState.isLoading(): Boolean{
@@ -39,6 +41,7 @@ fun AuthState.isLoading(): Boolean{
 class AuthViewModel @Inject constructor(
     private val loginUseCase: Login,
     private val signupUseCase: Signup,
+    private val fetchAuthUseCase: FetchAuth,
 ) : ViewModel() {
     private val _authState: MutableState<AuthState> = mutableStateOf<AuthState>(value = AuthState.Initial)
     val authState: State<AuthState> = _authState
@@ -73,6 +76,20 @@ class AuthViewModel @Inject constructor(
                 _authState.value = AuthState.Loaded(user)
                 _uiEventAction.emit(UIEvents.SuccessAndNavigate)
             }catch(ex: Exception){
+                _uiEventAction.emit(UIEvents.FailureAndStay)
+                throw ex
+            }
+        }
+    }
+
+    fun fetchAuth(){
+        viewModelScope.launch(exceptionHandler + Dispatchers.IO) {
+            try{
+                val authModel: AuthModel = fetchAuthUseCase()
+                _authState.value = AuthState.Loaded(authModel)
+                _uiEventAction.emit(UIEvents.SuccessAndNavigate)
+            }catch(ex: Exception){
+                _uiEventAction.emit(UIEvents.FailureAndStay)
                 throw ex
             }
         }

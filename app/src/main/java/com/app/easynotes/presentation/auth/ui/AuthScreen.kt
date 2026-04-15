@@ -66,6 +66,7 @@ fun AuthScreen(navController: NavHostController, authViewModel: AuthViewModel){
         authViewModel.uiEventsAction.collect{action->
             when(action){
                 UIEvents.SuccessAndNavigate -> navController.navigate(Routes.Home)
+                UIEvents.FailureAndStay -> {}
             }
         }
     }
