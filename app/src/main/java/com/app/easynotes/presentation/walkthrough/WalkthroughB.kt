@@ -68,7 +68,7 @@ fun WalkThroughB(navController: NavHostController) {
                 )
             )
 
-            Spacer(modifier = Modifier.height(15.h.dp))
+            Spacer(modifier = Modifier.height(40.h.dp))
             PrimaryButton(buttonText = "Next", onClick = {navController.navigate(Routes.WalkC)})
             Spacer(modifier = Modifier.height(20.h.dp))
         }

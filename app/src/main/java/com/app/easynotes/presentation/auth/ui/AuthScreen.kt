@@ -131,7 +131,7 @@ fun AuthScreen(navController: NavHostController, authViewModel: AuthViewModel){
                 isPassword = true
             )
 
-            Spacer(modifier = Modifier.height(20.h.dp))
+            Spacer(modifier = Modifier.height(30.h.dp))
             Box(modifier = Modifier.padding(horizontal = AppConstants.horizontalPaddingValue.w.dp)) {
                 PrimaryButton(buttonText = if(currentAuthType.value== AuthType.LOGIN) "Login" else "Sign Up",
                     isLoading = authViewModel.authState.value.isLoading(),
@@ -154,7 +154,7 @@ fun AuthScreen(navController: NavHostController, authViewModel: AuthViewModel){
                     }
                 })
             }
-            Spacer(modifier = Modifier.height(10.h.dp))
+            Spacer(modifier = Modifier.height(15.h.dp))
             Row {
                 Text(
                     text = if(currentAuthType.value== AuthType.LOGIN) "Don't have an account? " else "Already have an account? ",
@@ -162,7 +162,7 @@ fun AuthScreen(navController: NavHostController, authViewModel: AuthViewModel){
                         color = Color.Gray,
                         fontWeight = FontWeight.Medium,
                         textAlign = TextAlign.Center,
-                        fontSize = 18.sp,
+                        fontSize = 14.sp,
                     )
                 )
 
@@ -179,11 +179,11 @@ fun AuthScreen(navController: NavHostController, authViewModel: AuthViewModel){
                         color = colorResource(R.color.primary_color),
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
-                        fontSize = 18.sp,
+                        fontSize = 14.sp,
                     )
                 )
             }
-            Spacer(modifier = Modifier.height(10.h.dp))
+            Spacer(modifier = Modifier.height(40.h.dp))
         }
     }
 }
