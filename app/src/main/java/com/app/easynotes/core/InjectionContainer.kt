@@ -8,10 +8,15 @@ import com.app.easynotes.core.interceptors.AuthInterceptor
 import com.app.easynotes.data.auth.datasource.local.AuthDao
 import com.app.easynotes.data.auth.datasource.remote.AuthRemoteDataSource
 import com.app.easynotes.data.auth.repository.AuthRepositoryImpl
+import com.app.easynotes.data.notes.datasource.local.NotesLocalDataSource
+import com.app.easynotes.data.notes.datasource.remote.NotesRemoteDataSource
+import com.app.easynotes.data.notes.repository.NotesRepositoryImpl
 import com.app.easynotes.domain.auth.repository.AuthRepository
 import com.app.easynotes.domain.auth.usecase.FetchAuth
 import com.app.easynotes.domain.auth.usecase.Login
 import com.app.easynotes.domain.auth.usecase.Signup
+import com.app.easynotes.domain.notes.repository.NotesRepository
+import com.app.easynotes.domain.notes.usecase.CreateNote
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -95,5 +100,31 @@ object InjectionContainer {
     @Singleton
     fun fetchAuthProvider(authRepository: AuthRepository) : FetchAuth{
         return FetchAuth(authRepository = authRepository)
+    }
+
+
+    // Notes
+    @Provides
+    @Singleton
+    fun provideNotesRemoteDataSource(retrofit: Retrofit): NotesRemoteDataSource{
+        return retrofit.create(NotesRemoteDataSource::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideNotesLocalDataSource(cacheClient: CacheClient): NotesLocalDataSource{
+        return cacheClient.provideNotesDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideNotesRspository(notesRemoteDataSource: NotesRemoteDataSource, notesLocalDataSource: NotesLocalDataSource) : NotesRepository{
+        return NotesRepositoryImpl(notesRemoteDataSource, notesLocalDataSource)
+    }
+
+    @Provides
+    @Singleton
+    fun createNoteUseCaseProvider(notesRepository: NotesRepository): CreateNote{
+        return CreateNote(notesRepository)
     }
 }
